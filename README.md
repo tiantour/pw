@@ -18,7 +18,7 @@ func main() {
 		Debug:     1, // 1开启0关闭
 	}
 	body, err := pw.Cmd(
-		"post",    // get or post
+		"post", // get or post
 		"南京市长江大桥", // resorce
 		args, // options
 	)
