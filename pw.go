@@ -14,8 +14,6 @@ type Options struct {
 }
 
 // Cmd send data to api.pullword.com
-// date 2016-12-31
-// author andy.jiang
 func Cmd(method, source string, args Options) ([]byte, error) {
 	url := fmt.Sprintf(
 		"http://api.pullword.com/%s.php?source=%s&param1=%d&param2=%d",
