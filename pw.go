@@ -2,7 +2,6 @@ package pw
 
 import (
 	"fmt"
-	"strings"
 
 	"github.com/tiantour/fetch"
 )
@@ -15,12 +14,14 @@ type Options struct {
 
 // Cmd send data to api.pullword.com
 func Cmd(method, source string, args Options) ([]byte, error) {
-	url := fmt.Sprintf(
-		"http://api.pullword.com/%s.php?source=%s&param1=%d&param2=%d",
-		method,
-		source,
-		args.Threshold,
-		args.Debug,
-	)
-	return fetch.Cmd(method, strings.ToLower(url))
+	return fetch.Cmd(fetch.Request{
+		Method: method,
+		URL: fmt.Sprintf(
+			"http://api.pullword.com/%s.php?source=%s&param1=%d&param2=%d",
+			method,
+			source,
+			args.Threshold,
+			args.Debug,
+		),
+	})
 }
